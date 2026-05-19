@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HitscanWeaponResource" format=3 uid="uid://ddabl3ndv261v"]
+
+[ext_resource type="Script" uid="uid://c0j4frbp1dwo3" path="res://scripts/weapon/weapon_resource/classic_weapon.gd" id="1_buian"]
+[ext_resource type="Resource" uid="uid://b8hx1k66kanif" path="res://assets/resources/handable_items/viewmodel/test1_viewmodel.tres" id="2_8r85e"]
+
+[resource]
+script = ExtResource("1_buian")
+name = "test1"
+viewmodel = ExtResource("2_8r85e")
+metadata/_custom_type_script = "uid://c0j4frbp1dwo3"

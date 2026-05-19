@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://brjjp0bbkhahw"]
+
+[ext_resource type="Script" uid="uid://bjwieg0b4pkml" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://1lt0q45ba0rr" path="res://scripts/map_grid/gmap_builder.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://0ovetv03awaa" path="res://scripts/map_grid/gmap_grid_item.gd" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://cycih2thxvjx6" path="res://scripts/map_grid/gmap.gd" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://c3hjejmy6yiuc" path="res://scripts/map_grid/gmap_room.gd" id="3_tefeu"]
+[ext_resource type="Script" uid="uid://cqbhiq0x70so2" path="res://scripts/gmap_generator.gd" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://chv7gtkbov8bi" path="res://scripts/player/pawn.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://cc8r1coh1jhd7" path="res://scripts/player/fps.gd" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://r62vgn854mc6" path="res://scenes/bot_pawn.tscn" id="9_ya4ey"]
+[ext_resource type="Script" uid="uid://bu5nk6eairi8f" path="res://scripts/bot/bot_ai_walking_enemy.gd" id="10_eb6dy"]
+[ext_resource type="Script" uid="uid://dcql8bii4brq3" path="res://scripts/bot/bot_resource.gd" id="10_ya4ey"]
+
+[sub_resource type="Resource" id="Resource_tipki"]
+script = ExtResource("3_tefeu")
+style = "foam"
+metadata/_custom_type_script = "uid://c3hjejmy6yiuc"
+
+[sub_resource type="Resource" id="Resource_choun"]
+script = ExtResource("3_tbgi4")
+grid = Array[ExtResource("2_jyhfs")]([SubResource("Resource_tipki")])
+metadata/_custom_type_script = "uid://cycih2thxvjx6"
+
+[sub_resource type="Resource" id="Resource_85g3d"]
+script = ExtResource("5_tefeu")
+metadata/_custom_type_script = "uid://cqbhiq0x70so2"
+
+[sub_resource type="Environment" id="Environment_tipki"]
+tonemap_mode = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tipki"]
+radius = 0.25
+
+[sub_resource type="Resource" id="Resource_trceg"]
+script = ExtResource("10_eb6dy")
+metadata/_custom_type_script = "uid://bu5nk6eairi8f"
+
+[sub_resource type="Resource" id="Resource_a8y0u"]
+script = ExtResource("10_ya4ey")
+bot_ai = SubResource("Resource_trceg")
+metadata/_custom_type_script = "uid://dcql8bii4brq3"
+
+[node name="main" type="Node3D" unique_id=1205925465]
+script = ExtResource("1_0wfyh")
+gmap = SubResource("Resource_choun")
+gmap_generator = SubResource("Resource_85g3d")
+
+[node name="map" type="Node3D" parent="." unique_id=1660001087]
+
+[node name="gmap_builder" type="Node3D" parent="map" unique_id=214503022]
+unique_name_in_owner = true
+script = ExtResource("1_o5qli")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=786026841]
+
+[node name="player" type="Node3D" parent="." unique_id=76137958]
+
+[node name="pawn" type="CharacterBody3D" parent="player" unique_id=2005016671]
+unique_name_in_owner = true
+collision_layer = 2
+script = ExtResource("7_o6xl0")
+
+[node name="fps" type="Camera3D" parent="player/pawn" unique_id=2098103377]
+unique_name_in_owner = true
+environment = SubResource("Environment_tipki")
+v_offset = -0.25
+fov = 60.0
+script = ExtResource("8_tipki")
+
+[node name="shape" type="CollisionShape3D" parent="player/pawn" unique_id=310107422]
+shape = SubResource("SphereShape3D_tipki")
+
+[node name="can_jump_timer" type="Timer" parent="player/pawn" unique_id=787260676]
+wait_time = 0.06
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1891914887]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 30, 0)
+visible = false
+
+[node name="bot_pawn" parent="." unique_id=1602673885 instance=ExtResource("9_ya4ey")]
+bot_resource = SubResource("Resource_a8y0u")

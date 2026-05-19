@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://r62vgn854mc6"]
+
+[ext_resource type="Script" uid="uid://bvwkt5vqk00dd" path="res://scripts/bot/bot_node.gd" id="1_u8vap"]
+[ext_resource type="Script" uid="uid://bwearuug2cdht" path="res://scripts/bot/bot_ai.gd" id="2_ntuq6"]
+[ext_resource type="Script" uid="uid://dcql8bii4brq3" path="res://scripts/bot/bot_resource.gd" id="3_bf32g"]
+[ext_resource type="Texture2D" uid="uid://lpbu40ge1ev1" path="res://assets/sprites/bot/test.png" id="4_px7s3"]
+[ext_resource type="Script" uid="uid://dv48on6su4htt" path="res://addons/squash/billboard_mesh.gd" id="5_vjusx"]
+
+[sub_resource type="Resource" id="Resource_jbj1t"]
+script = ExtResource("2_ntuq6")
+metadata/_custom_type_script = "uid://bwearuug2cdht"
+
+[sub_resource type="Resource" id="Resource_eb6dy"]
+script = ExtResource("3_bf32g")
+bot_ai = SubResource("Resource_jbj1t")
+metadata/_custom_type_script = "uid://dcql8bii4brq3"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
+shading_mode = 0
+albedo_texture = ExtResource("4_px7s3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_trceg"]
+material = SubResource("StandardMaterial3D_trceg")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_trceg"]
+
+[node name="bot" type="CharacterBody3D" unique_id=1602673885]
+collision_layer = 4
+script = ExtResource("1_u8vap")
+bot_resource = SubResource("Resource_eb6dy")
+
+[node name="billboard_mesh" type="MeshInstance3D" parent="." unique_id=444244020]
+mesh = SubResource("QuadMesh_trceg")
+script = ExtResource("5_vjusx")
+sprite = ExtResource("4_px7s3")
+initialize_on_ready = true
+
+[node name="shape" type="CollisionShape3D" parent="." unique_id=97016335]
+shape = SubResource("SphereShape3D_trceg")
+
+[node name="think_timer" type="Timer" parent="." unique_id=2118568612]
+wait_time = 0.553
+autostart = true

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HandableResource" format=3 uid="uid://n0rx3ayqn51w"]
+
+[ext_resource type="Script" uid="uid://b4w7121i8mirb" path="res://scripts/handable_resource.gd" id="1_331ew"]
+[ext_resource type="Script" uid="uid://7pobr5wk22bu" path="res://scripts/viewmodel/viewmodel_resource.gd" id="2_fr60e"]
+
+[sub_resource type="Resource" id="Resource_wueux"]
+script = ExtResource("2_fr60e")
+metadata/_custom_type_script = "uid://7pobr5wk22bu"
+
+[resource]
+script = ExtResource("1_331ew")
+viewmodel = SubResource("Resource_wueux")
+metadata/_custom_type_script = "uid://b4w7121i8mirb"

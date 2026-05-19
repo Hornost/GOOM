@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ibdhjkmeg5sw"]
+
+[ext_resource type="Texture2D" uid="uid://coc58lxxgk0d7" path="res://assets/sprites/decal.png" id="1_v4yn4"]
+
+[node name="decal" type="Decal" unique_id=973978616]
+size = Vector3(0.1, 0.1, 0.1)
+texture_albedo = ExtResource("1_v4yn4")

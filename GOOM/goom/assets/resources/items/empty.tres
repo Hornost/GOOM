@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://cmxiggdbe7d3k"]
+
+[ext_resource type="Texture2D" uid="uid://dw1m6yp3nxddw" path="res://assets/icon.svg" id="1_khexq"]
+[ext_resource type="Script" uid="uid://c6uhh7hutqtde" path="res://scripts/inventory/inventory_item.gd" id="1_rb87v"]
+[ext_resource type="Resource" uid="uid://c318kp5ejyt8n" path="res://assets/resources/handable_items/empty.tres" id="2_3fkxu"]
+
+[resource]
+script = ExtResource("1_rb87v")
+name = "Empty"
+icon = ExtResource("1_khexq")
+resource = ExtResource("2_3fkxu")
+metadata/_custom_type_script = "uid://c6uhh7hutqtde"

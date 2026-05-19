@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DrillWeaponResource" format=3 uid="uid://d5i07eyg1e0l"]
+
+[ext_resource type="Script" uid="uid://5attprp8f2ut" path="res://scripts/weapon/weapon_resource/other/drill_weapon.gd" id="1_drdap"]
+[ext_resource type="Resource" uid="uid://cwoxixe8kbj32" path="res://assets/resources/handable_items/viewmodel/drill_viewmodel.tres" id="2_xg852"]
+
+[resource]
+script = ExtResource("1_drdap")
+distance = 2
+name = "drill"
+viewmodel = ExtResource("2_xg852")
+metadata/_custom_type_script = "uid://5attprp8f2ut"

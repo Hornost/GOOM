@@ -1,0 +1,388 @@
+[gd_scene format=3 uid="uid://brjjp0bbkhahw"]
+
+[ext_resource type="Script" uid="uid://bjwieg0b4pkml" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://1lt0q45ba0rr" path="res://scripts/grid_map/gmap_builder.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://0ovetv03awaa" path="res://scripts/grid_map/gmap_grid_item.gd" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://cycih2thxvjx6" path="res://scripts/grid_map/gmap.gd" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://cqbhiq0x70so2" path="res://scripts/grid_map/gmap_generator.gd" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://cwlyty1ns4q6w" path="res://scripts/debug_tool.gd" id="6_0ld40"]
+[ext_resource type="Script" uid="uid://bxmtgq30ngl67" path="res://scripts/inventory/inventory_controller.gd" id="7_a8y0u"]
+[ext_resource type="Resource" uid="uid://cmxiggdbe7d3k" path="res://assets/resources/items/empty.tres" id="7_dp3eg"]
+[ext_resource type="Script" uid="uid://chv7gtkbov8bi" path="res://scripts/player/pawn.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://v4hn2ddeg14r" path="res://scripts/weapon/weapon_controller.gd" id="8_jkv2x"]
+[ext_resource type="Script" uid="uid://o80hylo42eb1" path="res://scripts/condition_controller.gd" id="8_pm3ni"]
+[ext_resource type="Script" uid="uid://cc8r1coh1jhd7" path="res://scripts/player/fps.gd" id="8_tipki"]
+[ext_resource type="Script" uid="uid://cnhemd32xwa0o" path="res://scripts/viewmodel/viewmodel_controller.gd" id="9_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://r62vgn854mc6" path="res://scenes/bot_pawn.tscn" id="9_ya4ey"]
+[ext_resource type="Script" uid="uid://bu5nk6eairi8f" path="res://scripts/bot/bot_ai_walking_enemy.gd" id="10_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://bxjddknyhqvgt" path="res://assets/textures/ui/crosshair.png" id="10_trceg"]
+[ext_resource type="Script" uid="uid://dcql8bii4brq3" path="res://scripts/bot/bot_resource.gd" id="10_ya4ey"]
+[ext_resource type="Script" uid="uid://b3vk8l5816adf" path="res://scenes/shoot_controller.gd" id="11_gqmmt"]
+[ext_resource type="Script" uid="uid://cqjvk2txrhqq5" path="res://scripts/animated_texture_rect_node.gd" id="13_dp3eg"]
+
+[sub_resource type="Resource" id="Resource_choun"]
+script = ExtResource("3_tbgi4")
+metadata/_custom_type_script = "uid://cycih2thxvjx6"
+
+[sub_resource type="Resource" id="Resource_85g3d"]
+script = ExtResource("5_tefeu")
+metadata/_custom_type_script = "uid://cqbhiq0x70so2"
+
+[sub_resource type="Animation" id="Animation_yc10j"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%viewmodel_sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%viewmodel_sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbj1t"]
+_data = {
+&"RESET": SubResource("Animation_yc10j")
+}
+
+[sub_resource type="Animation" id="Animation_agbwv"]
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(20, -0.050000004, 0, 0, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%viewmodel_sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(15.405, -0.25, 0, 0.24999988, 0, 0, -0.0888889, 0, 0, 0, 15.405, -0.25, 0, 0.24999988, 0),
+"times": PackedFloat32Array(0, 0.4, 1)
+}
+
+[sub_resource type="Animation" id="Animation_dso5h"]
+resource_name = "pickup"
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(0.2679432, 1),
+"update": 0,
+"values": [Vector2(20, 300.235), Vector2(20, 11.324479)]
+}
+
+[sub_resource type="Animation" id="Animation_lkbps"]
+length = 0.16666667
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2rlye"]
+resource_name = "walk"
+length = 1.0333333
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-20, -0.25, 0, 0.25, 0, 20, -0.050000004, 0, 0, 0, -20, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%viewmodel_sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yc10j"]
+_data = {
+&"idle": SubResource("Animation_agbwv"),
+&"pickup": SubResource("Animation_dso5h"),
+&"shoot": SubResource("Animation_lkbps"),
+&"walk": SubResource("Animation_2rlye")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yc10j"]
+animation = &"test1/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gqmmt"]
+animation = &"test1/pickup"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jscy8"]
+animation = &"test1/shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m8oa3"]
+animation = &"test1/walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y6deb"]
+advance_mode = 2
+advance_expression = "is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yc10j"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!is_shooting and !is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m8oa3"]
+advance_mode = 2
+advance_expression = "is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s0qng"]
+advance_mode = 2
+advance_expression = "!is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o3ktn"]
+advance_mode = 2
+advance_expression = "is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a4aej"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!is_shooting and is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3a8jv"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jscy8"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hpos3"]
+states/End/position = Vector2(794.9434, 45.54078)
+states/Idle/node = SubResource("AnimationNodeAnimation_yc10j")
+states/Idle/position = Vector2(398.21918, 53.877556)
+states/Pickup/node = SubResource("AnimationNodeAnimation_gqmmt")
+states/Pickup/position = Vector2(236.05661, 36.698135)
+states/Shoot/node = SubResource("AnimationNodeAnimation_jscy8")
+states/Shoot/position = Vector2(481.0745, 168.60378)
+states/Start/position = Vector2(59.62264, 60.04574)
+states/Walk/node = SubResource("AnimationNodeAnimation_m8oa3")
+states/Walk/position = Vector2(563.6604, 53.8922)
+transitions = ["Idle", "Shoot", SubResource("AnimationNodeStateMachineTransition_y6deb"), "Shoot", "Idle", SubResource("AnimationNodeStateMachineTransition_yc10j"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_m8oa3"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_s0qng"), "Walk", "Shoot", SubResource("AnimationNodeStateMachineTransition_o3ktn"), "Shoot", "Walk", SubResource("AnimationNodeStateMachineTransition_a4aej"), "Start", "Pickup", SubResource("AnimationNodeStateMachineTransition_3a8jv"), "Pickup", "Idle", SubResource("AnimationNodeStateMachineTransition_jscy8")]
+graph_offset = Vector2(-55, -35)
+
+[sub_resource type="Environment" id="Environment_tipki"]
+tonemap_mode = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tipki"]
+radius = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_trceg"]
+radius = 0.4
+radial_segments = 7
+rings = 6
+
+[sub_resource type="Resource" id="Resource_trceg"]
+script = ExtResource("10_eb6dy")
+metadata/_custom_type_script = "uid://bu5nk6eairi8f"
+
+[sub_resource type="Resource" id="Resource_a8y0u"]
+script = ExtResource("10_ya4ey")
+bot_ai = SubResource("Resource_trceg")
+metadata/_custom_type_script = "uid://dcql8bii4brq3"
+
+[node name="main" type="Node3D" unique_id=1205925465]
+script = ExtResource("1_0wfyh")
+gmap = SubResource("Resource_choun")
+gmap_generator = SubResource("Resource_85g3d")
+
+[node name="player" type="Node3D" parent="." unique_id=76137958]
+
+[node name="debug_tool" type="Node" parent="player" unique_id=1353730753]
+script = ExtResource("6_0ld40")
+
+[node name="condition_controller" type="Node" parent="player" unique_id=1557483115]
+unique_name_in_owner = true
+script = ExtResource("8_pm3ni")
+
+[node name="inventory_controller" type="Node" parent="player" unique_id=1014141245]
+unique_name_in_owner = true
+script = ExtResource("7_a8y0u")
+current_item = ExtResource("7_dp3eg")
+
+[node name="weapon_controller" type="Node" parent="player" unique_id=2092033447]
+unique_name_in_owner = true
+script = ExtResource("8_jkv2x")
+
+[node name="shoot_controller" type="Node" parent="player" unique_id=948502677]
+unique_name_in_owner = true
+script = ExtResource("11_gqmmt")
+
+[node name="hitscan_ray" type="RayCast3D" parent="player/shoot_controller" unique_id=311804986]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, 0)
+
+[node name="viewmodel_controller" type="Node" parent="player" unique_id=373793244]
+unique_name_in_owner = true
+script = ExtResource("9_jbj1t")
+
+[node name="viewmodel_animation_controller" type="AnimationPlayer" parent="player/viewmodel_controller" unique_id=1548716469]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_jbj1t")
+libraries/test1 = SubResource("AnimationLibrary_yc10j")
+
+[node name="viewmodel_animation_tree" type="AnimationTree" parent="player/viewmodel_controller" unique_id=1005774922]
+unique_name_in_owner = true
+deterministic = false
+root_node = NodePath("%viewmodel_animation_tree/..")
+tree_root = SubResource("AnimationNodeStateMachine_hpos3")
+advance_expression_base_node = NodePath("../../condition_controller")
+anim_player = NodePath("../viewmodel_animation_controller")
+
+[node name="pawn" type="CharacterBody3D" parent="player" unique_id=2005016671]
+unique_name_in_owner = true
+collision_layer = 2
+script = ExtResource("7_o6xl0")
+
+[node name="fps" type="Camera3D" parent="player/pawn" unique_id=2098103377]
+unique_name_in_owner = true
+environment = SubResource("Environment_tipki")
+fov = 60.0
+script = ExtResource("8_tipki")
+
+[node name="main_ray" type="RayCast3D" parent="player/pawn/fps" unique_id=25465842]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -20)
+
+[node name="shape" type="CollisionShape3D" parent="player/pawn" unique_id=310107422]
+shape = SubResource("SphereShape3D_tipki")
+
+[node name="can_jump_timer" type="Timer" parent="player/pawn" unique_id=787260676]
+wait_time = 0.06
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/pawn" unique_id=917123459]
+mesh = SubResource("SphereMesh_trceg")
+
+[node name="ui" type="Control" parent="player" unique_id=1219897007]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="viewmodel" type="Control" parent="player/ui" unique_id=1708479488]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="viewmodel_sprite" type="TextureRect" parent="player/ui/viewmodel" unique_id=1781249083]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(576, 324)
+script = ExtResource("13_dp3eg")
+
+[node name="crosshair" type="Control" parent="player/ui" unique_id=460017810]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="crosshair_sprite" type="TextureRect" parent="player/ui/crosshair" unique_id=880334132]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(2.5, 2.5)
+texture = ExtResource("10_trceg")
+
+[node name="map" type="Node3D" parent="." unique_id=1660001087]
+
+[node name="gmap_builder" type="Node3D" parent="map" unique_id=214503022]
+unique_name_in_owner = true
+script = ExtResource("1_o5qli")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=786026841]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1891914887]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 30, 0)
+visible = false
+
+[node name="bot_pawn" parent="." unique_id=1602673885 instance=ExtResource("9_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092822194, 0, 0.48509645)
+bot_resource = SubResource("Resource_a8y0u")

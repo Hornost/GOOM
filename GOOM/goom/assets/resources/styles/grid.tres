@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GMapItemStyle" format=3 uid="uid://bi1f46o3rqv8i"]
+
+[ext_resource type="Script" uid="uid://dkf5uqdp5bsia" path="res://scripts/grid_map/gmap_item_style.gd" id="1_vsy0l"]
+[ext_resource type="Texture2D" uid="uid://bo6fwkga0d0jt" path="res://assets/sprites/styles/grid.png" id="2_qnikv"]
+
+[resource]
+script = ExtResource("1_vsy0l")
+texture_atlas = ExtResource("2_qnikv")
+metadata/_custom_type_script = "uid://dkf5uqdp5bsia"

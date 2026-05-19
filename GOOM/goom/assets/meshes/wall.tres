@@ -1,0 +1,4 @@
+[gd_resource type="QuadMesh" format=3 uid="uid://ckue4k35lplnr"]
+
+[resource]
+lightmap_size_hint = Vector2i(7, 7)

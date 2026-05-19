@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b2w17j0073dm3"]
+
+[ext_resource type="Script" uid="uid://rp5jjpg521sl" path="res://scripts/grid_map/gmap_mesh/gmap_mesh_room.gd" id="1_o1jpi"]
+
+[node name="gmap_mesh" type="Node3D" unique_id=727710791]
+script = ExtResource("1_o1jpi")

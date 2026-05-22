@@ -7,32 +7,30 @@ var player_pos = Vector3i.ZERO
 func _ready() -> void:
 	Engine.max_fps = 60
 	
-	#gmap = gmap_generator.generate()
+	gmap = gmap_generator.generate()
 	
-	#build test room
-	var room = GMapRoom.new()
-	room.style = "grid"
-	#room.args = ["dioganal_roof"]
-	room.light_level = 3
-	var size = 10
-	for y in range(1):
-		for x in range(size):
-			for z in range(size):
-				var _room = room.duplicate()
-				_room.pos = Vector3i(x-size/2,y,z-size/2)
-				gmap.grid.append(_room)
+	##build test room
+	#var room = GMapRoom.new()
+	#room.style = "grid"
+	##room.args = ["dioganal_roof"]
+	#room.light_level = 3
+	#var size = 10
+	#for y in range(1):
+		#for x in range(size):
+			#for z in range(size):
+				#var _room = room.duplicate()
+				#_room.pos = Vector3i(x-size/2,y,z-size/2)
+				#gmap.grid.append(_room)
 				
 	%gmap_builder.build_gmap(gmap)
 	
-	#player_enter_in_new_room.connect(update_light)
+	player_enter_in_new_room.connect(update_light)
 	player_enter_in_new_room.emit()
 	
-#func _process(delta: float) -> void:
-	#if player_pos != GMapItems.to_local(%player_pawn.global_position):
-		#player_pos = GMapItems.to_local(%player_pawn.global_position)
-		#player_enter_in_new_room.emit()
-		#
-
+func _process(delta: float) -> void:
+	if player_pos != GMapItems.to_local($player.find_child("player_pawn").global_position):
+		player_pos = GMapItems.to_local($player.find_child("player_pawn").global_position)
+		player_enter_in_new_room.emit()
 func update_light():
 	for i in range(gmap.grid.size()):
 			var item = gmap.grid[i]

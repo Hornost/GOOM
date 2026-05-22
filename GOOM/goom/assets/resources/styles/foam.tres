@@ -5,5 +5,6 @@
 
 [resource]
 script = ExtResource("1_d1eds")
+texture_idx = [0, 0, 0, 0]
 texture_atlas = ExtResource("2_dnspe")
 metadata/_custom_type_script = "uid://dkf5uqdp5bsia"

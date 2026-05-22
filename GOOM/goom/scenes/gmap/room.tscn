@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://rp5jjpg521sl" path="res://scripts/grid_map/gmap_mesh/gmap_mesh_room.gd" id="1_b6cg7"]
 [ext_resource type="QuadMesh" uid="uid://ckue4k35lplnr" path="res://assets/meshes/wall.tres" id="2_vuay8"]
 [ext_resource type="PlaneMesh" uid="uid://ch07y556kiju0" path="res://assets/meshes/roof.tres" id="3_m42og"]
+[ext_resource type="PrismMesh" uid="uid://2d56v1ds06gs" path="res://assets/meshes/ramp.tres" id="4_cdrf5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6cg7"]
 size = Vector3(1, 1, 0.01)
@@ -12,6 +13,9 @@ size = Vector3(1, 0.01, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_my84t"]
 size = Vector2(1, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cdrf5"]
+points = PackedVector3Array(0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5)
 
 [node name="room_mesh" type="Node3D" unique_id=727710791]
 script = ExtResource("1_b6cg7")
@@ -70,38 +74,42 @@ mesh = SubResource("PlaneMesh_my84t")
 [node name="shape" type="CollisionShape3D" parent="roof [roof]/body" unique_id=1893020843]
 shape = SubResource("BoxShape3D_vuay8")
 
-[node name="dioganal_roof_z+ [roof]" type="MeshInstance3D" parent="." unique_id=279312538]
-transform = Transform3D(-1, 1.4947823e-07, 1.0677013e-07, 0, 0.9899494, -0.70710677, -1.509958e-07, -0.9899495, -0.70710665, 0, 0, 0)
-mesh = ExtResource("2_vuay8")
+[node name="dioganal_roof_x- [ramp]" type="MeshInstance3D" parent="." unique_id=1931954700]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = ExtResource("4_cdrf5")
 
-[node name="body" type="StaticBody3D" parent="dioganal_roof_z+ [roof]" unique_id=800688709]
+[node name="body" type="StaticBody3D" parent="dioganal_roof_x- [ramp]" unique_id=762801059]
 
-[node name="shape" type="CollisionShape3D" parent="dioganal_roof_z+ [roof]/body" unique_id=990572382]
-shape = SubResource("BoxShape3D_b6cg7")
+[node name="shape" type="CollisionShape3D" parent="dioganal_roof_x- [ramp]/body" unique_id=1400254930]
+shape = SubResource("ConvexPolygonShape3D_cdrf5")
 
-[node name="dioganal_roof_z- [roof]" type="MeshInstance3D" parent="." unique_id=1561126371]
-transform = Transform3D(-1, -1.2239188e-07, 0, 6.181724e-08, -0.98994946, -0.7071067, 6.181724e-08, -0.98994946, 0.7071067, 0, 0, 0)
-mesh = ExtResource("2_vuay8")
+[node name="dioganal_roof_x+ [ramp]" type="MeshInstance3D" parent="." unique_id=1525714821]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 0, 0, 0)
+visible = false
+mesh = ExtResource("4_cdrf5")
 
-[node name="body" type="StaticBody3D" parent="dioganal_roof_z- [roof]" unique_id=1920487960]
+[node name="body" type="StaticBody3D" parent="dioganal_roof_x+ [ramp]" unique_id=1975436070]
 
-[node name="shape" type="CollisionShape3D" parent="dioganal_roof_z- [roof]/body" unique_id=2140495525]
-shape = SubResource("BoxShape3D_b6cg7")
+[node name="shape" type="CollisionShape3D" parent="dioganal_roof_x+ [ramp]/body" unique_id=909588233]
+shape = SubResource("ConvexPolygonShape3D_cdrf5")
 
-[node name="dioganal_roof_x+ [roof]" type="MeshInstance3D" parent="." unique_id=1430041184]
-transform = Transform3D(-4.3711385e-08, -0.98994946, -0.7071067, 0, 0.98994946, -0.7071067, 0.99999994, -4.3272067e-08, -3.0908616e-08, 0, 0, 0)
-mesh = ExtResource("2_vuay8")
+[node name="dioganal_roof_z- [ramp]" type="MeshInstance3D" parent="." unique_id=1497498423]
+transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, 0, 0, 0)
+visible = false
+mesh = ExtResource("4_cdrf5")
 
-[node name="body" type="StaticBody3D" parent="dioganal_roof_x+ [roof]" unique_id=434278279]
+[node name="body" type="StaticBody3D" parent="dioganal_roof_z- [ramp]" unique_id=1897550747]
 
-[node name="shape" type="CollisionShape3D" parent="dioganal_roof_x+ [roof]/body" unique_id=2131012442]
-shape = SubResource("BoxShape3D_b6cg7")
+[node name="shape" type="CollisionShape3D" parent="dioganal_roof_z- [ramp]/body" unique_id=1915882328]
+shape = SubResource("ConvexPolygonShape3D_cdrf5")
 
-[node name="dioganal_roof_x- [roof]" type="MeshInstance3D" parent="." unique_id=1364089526]
-transform = Transform3D(-4.3711385e-08, 0.98994946, 0.7071067, 0, 0.98994946, -0.7071067, -0.99999994, -4.3272067e-08, -3.0908616e-08, 0, 0, 0)
-mesh = ExtResource("2_vuay8")
+[node name="dioganal_roof_z+ [ramp]" type="MeshInstance3D" parent="." unique_id=1792120969]
+transform = Transform3D(1.9106857e-15, -4.371138e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371138e-08, 0, 0, 0)
+visible = false
+mesh = ExtResource("4_cdrf5")
 
-[node name="body" type="StaticBody3D" parent="dioganal_roof_x- [roof]" unique_id=1169477951]
+[node name="body" type="StaticBody3D" parent="dioganal_roof_z+ [ramp]" unique_id=106601999]
 
-[node name="shape" type="CollisionShape3D" parent="dioganal_roof_x- [roof]/body" unique_id=395865469]
-shape = SubResource("BoxShape3D_b6cg7")
+[node name="shape" type="CollisionShape3D" parent="dioganal_roof_z+ [ramp]/body" unique_id=971863152]
+shape = SubResource("ConvexPolygonShape3D_cdrf5")

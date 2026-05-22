@@ -7,5 +7,5 @@ func shoot(sc: ShootController):
 	if info:
 		var body = info[0]
 		if body is StaticBody3D:
-			sc.destruct(round(info[1])+-round(info[2]))
+			sc.destruct(round(info[1])+-round(info[2]*0.5))
 			pass

@@ -1,6 +1,6 @@
 extends Resource
 class_name GMapGenerator
-var room_iteration_count = 2**4
+var room_iteration_count = 2**8
 func generate()->GMap:
 	var gmap = GMap.new()
 	#generate rooms

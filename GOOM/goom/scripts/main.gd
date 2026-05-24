@@ -8,6 +8,8 @@ func _ready() -> void:
 	Engine.max_fps = 60
 	
 	gmap = gmap_generator.generate()
+	#for el in gmap.grid:
+		#print(el.pos)
 	
 	##build test room
 	#var room = GMapRoom.new()
@@ -34,6 +36,7 @@ func _process(delta: float) -> void:
 func update_light():
 	for i in range(gmap.grid.size()):
 			var item = gmap.grid[i]
-			var _light_level = clampi(roundi((3-clamp(item.pos.distance_to(player_pos)*0.1,0,3))),0,3)
-			var light_level = clampi(_light_level,0,3)#clampi(item.light_level+_light_level,0,3)
+			var light_force = 0.5
+			var _light_level = clampi(roundi((GMapGridItem.MAX_LIGHT_LEVEL-clamp(item.pos.distance_to(player_pos)*light_force,0,GMapGridItem.MAX_LIGHT_LEVEL))),0,GMapGridItem.MAX_LIGHT_LEVEL)
+			var light_level = clampi(_light_level,0,GMapGridItem.MAX_LIGHT_LEVEL)#clampi(item.light_level+_light_level,0,3)
 			%gmap_builder.generated_meshes[i].update_material(item,light_level)

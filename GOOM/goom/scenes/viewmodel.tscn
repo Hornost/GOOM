@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://cmn6oj4yyc7sq"]
+
+[ext_resource type="Script" uid="uid://6np4pdtadrqe" path="res://scenes/viewmodel.gd" id="1_et6ey"]
+[ext_resource type="Script" uid="uid://ulkw6rhw3n61" path="res://scripts/animated_sprite_node.gd" id="2_et6ey"]
+[ext_resource type="Resource" uid="uid://chj5p5mirg5g3" path="res://assets/resources/items/test1.tres" id="4_wcc5d"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bknrh"]
+viewport_path = NodePath("viewmodel_viewport")
+
+[sub_resource type="Animation" id="Animation_yc10j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_et6ey"]
+_data = {
+&"RESET": SubResource("Animation_yc10j")
+}
+
+[sub_resource type="Animation" id="Animation_agbwv"]
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_dso5h"]
+resource_name = "pickup"
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(0.13397259, 4.594793),
+"update": 0,
+"values": [Vector2(0, 101.235), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lkbps"]
+length = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -12.855), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2rlye"]
+resource_name = "walk"
+length = 1.0333333
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r83kc"]
+_data = {
+&"idle": SubResource("Animation_agbwv"),
+&"pickup": SubResource("Animation_dso5h"),
+&"shoot": SubResource("Animation_lkbps"),
+&"walk": SubResource("Animation_2rlye")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ga2h"]
+load_path = "res://.godot/imported/heavy_weapon_1_viewmodel.png-0bc050105cf122694d22e730b5db1665.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rskts"]
+atlas = SubResource("CompressedTexture2D_3ga2h")
+region = Rect2(0, 0, 320, 0)
+
+[node name="viewmodel" type="TextureRect" unique_id=1105389621 node_paths=PackedStringArray("viewmodel_animation_controller", "viewmodel_parent", "viewmodel_sprite")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_bknrh")
+script = ExtResource("1_et6ey")
+viewmodel_animation_controller = NodePath("viewmodel_animation_controller")
+viewmodel_parent = NodePath("viewmodel_viewport/viewmodel_parent")
+viewmodel_sprite = NodePath("viewmodel_viewport/viewmodel_parent/viewmodel_sprite")
+condition_controller = null
+debug_item = ExtResource("4_wcc5d")
+
+[node name="viewmodel_animation_controller" type="AnimationPlayer" parent="." unique_id=537045977]
+unique_name_in_owner = true
+root_node = NodePath("../viewmodel_viewport")
+libraries/ = SubResource("AnimationLibrary_et6ey")
+libraries/test1 = SubResource("AnimationLibrary_r83kc")
+
+[node name="viewmodel_viewport" type="SubViewport" parent="." unique_id=912664220]
+unique_name_in_owner = true
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+
+[node name="viewmodel_parent" type="Node2D" parent="viewmodel_viewport" unique_id=267263222]
+texture_filter = 1
+position = Vector2(160, 90)
+scale = Vector2(1.2, 1.2)
+
+[node name="viewmodel_sprite" type="Sprite2D" parent="viewmodel_viewport/viewmodel_parent" unique_id=912475303]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_rskts")
+script = ExtResource("2_et6ey")
+atlas = SubResource("AtlasTexture_rskts")

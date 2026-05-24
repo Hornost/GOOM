@@ -24,9 +24,9 @@ func generate()->GMap:
 				if !gmap.get_item(pos): break
 				
 			if !gmap.get_item(pos):
-				var style = "foam"#["white_space","foam"].pick_random()
-				gmap.grid.append(room(pos,style,3))
-				if randi_range(0,100)<=25: gmap.grid.append(room(pos+Vector3i(0,1,0),style,3))
+				var style = ["foam_pressured","foam"].pick_random()
+				gmap.grid.append(room(pos,style,GMapGridItem.MAX_LIGHT_LEVEL-1))
+				if randi_range(0,100)<=25: gmap.grid.append(room(pos+Vector3i(0,1,0),style,GMapGridItem.MAX_LIGHT_LEVEL-1))
 			last = pos
 		#
 	#for item in gmap.grid:
@@ -36,5 +36,6 @@ static func room(pos,style,light_level,args = []):
 	var room = GMapRoom.new()
 	room.pos = pos
 	room.style = style
+	room.args = args
 	room.light_level = light_level
 	return room

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cf6p1riesbji6"]
 
 [ext_resource type="Script" uid="uid://cwlyty1ns4q6w" path="res://scripts/debug_tool.gd" id="1_d2wvv"]
-[ext_resource type="Script" uid="uid://o80hylo42eb1" path="res://scripts/condition_controller.gd" id="2_3v2ag"]
 [ext_resource type="Resource" uid="uid://chj5p5mirg5g3" path="res://assets/resources/items/test1.tres" id="2_jej6c"]
 [ext_resource type="Script" uid="uid://bxmtgq30ngl67" path="res://scripts/inventory/inventory_controller.gd" id="3_jej6c"]
 [ext_resource type="Resource" uid="uid://cmxiggdbe7d3k" path="res://assets/resources/items/empty.tres" id="4_f1ej7"]
@@ -11,8 +10,8 @@
 [ext_resource type="Script" uid="uid://dhxk5hyxeycq7" path="res://scripts/decal_controller.gd" id="8_3v2ag"]
 [ext_resource type="Script" uid="uid://chv7gtkbov8bi" path="res://scripts/player/pawn.gd" id="8_fulsm"]
 [ext_resource type="Script" uid="uid://cc8r1coh1jhd7" path="res://scripts/player/fps.gd" id="9_4r5pv"]
-[ext_resource type="Script" uid="uid://cqjvk2txrhqq5" path="res://scripts/animated_texture_rect_node.gd" id="10_60mlk"]
 [ext_resource type="Texture2D" uid="uid://bxjddknyhqvgt" path="res://assets/sprites/ui/crosshair.png" id="11_i4ail"]
+[ext_resource type="PackedScene" uid="uid://cmn6oj4yyc7sq" path="res://scenes/viewmodel.tscn" id="13_f1ej7"]
 
 [sub_resource type="GDScript" id="GDScript_3v2ag"]
 script/source = "extends RayCast3D
@@ -20,203 +19,6 @@ var point
 var normal
 var body
 "
-
-[sub_resource type="Animation" id="Animation_yc10j"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%viewmodel_sprite:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%viewmodel_sprite:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("%viewmodel_sprite:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbj1t"]
-_data = {
-&"RESET": SubResource("Animation_yc10j")
-}
-
-[sub_resource type="Animation" id="Animation_agbwv"]
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%viewmodel_sprite:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(20, -0.050000004, 0, 0, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%viewmodel_sprite:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 0, 0),
-"points": PackedFloat32Array(15.405, -0.25, 0, 0.24999988, 0, 0, -0.0888889, 0, 0, 0, 15.405, -0.25, 0, 0.24999988, 0),
-"times": PackedFloat32Array(0, 0.4, 1)
-}
-
-[sub_resource type="Animation" id="Animation_dso5h"]
-resource_name = "pickup"
-length = 0.36666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%viewmodel_sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.36666667),
-"transitions": PackedFloat32Array(0.2679432, 1),
-"update": 0,
-"values": [Vector2(20, 300.235), Vector2(20, 11.324479)]
-}
-
-[sub_resource type="Animation" id="Animation_lkbps"]
-length = 0.16666667
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%viewmodel_sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.100000024, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_2rlye"]
-resource_name = "walk"
-length = 1.0333333
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%viewmodel_sprite:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-20, -0.25, 0, 0.25, 0, 20, -0.050000004, 0, 0, 0, -20, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%viewmodel_sprite:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yc10j"]
-_data = {
-&"idle": SubResource("Animation_agbwv"),
-&"pickup": SubResource("Animation_dso5h"),
-&"shoot": SubResource("Animation_lkbps"),
-&"walk": SubResource("Animation_2rlye")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yc10j"]
-animation = &"test1/idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gqmmt"]
-animation = &"test1/pickup"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jscy8"]
-animation = &"test1/shoot"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m8oa3"]
-animation = &"test1/walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y6deb"]
-advance_mode = 2
-advance_expression = "is_triggered"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yc10j"]
-break_loop_at_end = true
-switch_mode = 2
-advance_mode = 2
-advance_expression = "!is_triggered and !is_walking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m8oa3"]
-break_loop_at_end = true
-advance_mode = 2
-advance_expression = "is_walking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s0qng"]
-break_loop_at_end = true
-advance_mode = 2
-advance_expression = "!is_walking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o3ktn"]
-advance_mode = 2
-advance_expression = "is_triggered"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a4aej"]
-break_loop_at_end = true
-switch_mode = 2
-advance_mode = 2
-advance_expression = "!is_triggered and is_walking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3a8jv"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jscy8"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hpos3"]
-states/End/position = Vector2(794.9434, 45.54078)
-states/Idle/node = SubResource("AnimationNodeAnimation_yc10j")
-states/Idle/position = Vector2(398.21918, 53.877556)
-states/Pickup/node = SubResource("AnimationNodeAnimation_gqmmt")
-states/Pickup/position = Vector2(252.3585, 5.000019)
-states/Start/position = Vector2(59.62264, 60.04574)
-states/Trigger/node = SubResource("AnimationNodeAnimation_jscy8")
-states/Trigger/position = Vector2(481.0745, 168.60378)
-states/Walk/node = SubResource("AnimationNodeAnimation_m8oa3")
-states/Walk/position = Vector2(563.6604, 53.8922)
-transitions = ["Idle", "Trigger", SubResource("AnimationNodeStateMachineTransition_y6deb"), "Trigger", "Idle", SubResource("AnimationNodeStateMachineTransition_yc10j"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_m8oa3"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_s0qng"), "Walk", "Trigger", SubResource("AnimationNodeStateMachineTransition_o3ktn"), "Trigger", "Walk", SubResource("AnimationNodeStateMachineTransition_a4aej"), "Start", "Pickup", SubResource("AnimationNodeStateMachineTransition_3a8jv"), "Pickup", "Idle", SubResource("AnimationNodeStateMachineTransition_jscy8")]
-graph_offset = Vector2(-52, 2)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tipki"]
 radius = 0.4
@@ -226,22 +28,21 @@ radius = 0.4
 radial_segments = 7
 rings = 6
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_jej6c"]
+viewport_path = NodePath("viewmodel_viewport")
+
 [node name="player" type="Node3D" unique_id=60088616]
 
 [node name="debug_tool" type="Node" parent="." unique_id=1855806007]
 script = ExtResource("1_d2wvv")
 debug_item = ExtResource("2_jej6c")
 
-[node name="condition_controller" type="Node" parent="." unique_id=1358633105]
-unique_name_in_owner = true
-script = ExtResource("2_3v2ag")
-
 [node name="inventory_controller" type="Node" parent="." unique_id=217287391]
 unique_name_in_owner = true
 script = ExtResource("3_jej6c")
 current_item = ExtResource("4_f1ej7")
 
-[node name="weapon_controller" type="Node" parent="." unique_id=629416206]
+[node name="handable_controller" type="Node" parent="." unique_id=629416206]
 unique_name_in_owner = true
 script = ExtResource("5_oprun")
 
@@ -258,27 +59,6 @@ script = SubResource("GDScript_3v2ag")
 unique_name_in_owner = true
 script = ExtResource("7_qfm1y")
 
-[node name="viewmodel_animation_controller" type="AnimationPlayer" parent="viewmodel_controller" unique_id=370731897]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_jbj1t")
-libraries/test1 = SubResource("AnimationLibrary_yc10j")
-
-[node name="viewmodel_animation_tree" type="AnimationTree" parent="viewmodel_controller" unique_id=20245440]
-unique_name_in_owner = true
-deterministic = false
-root_node = NodePath("%viewmodel_animation_tree/..")
-tree_root = SubResource("AnimationNodeStateMachine_hpos3")
-advance_expression_base_node = NodePath("../../condition_controller")
-anim_player = NodePath("../viewmodel_animation_controller")
-
-[node name="viewmodel_animation_tree2" type="AnimationTree" parent="viewmodel_controller" unique_id=1492404518]
-unique_name_in_owner = true
-deterministic = false
-root_node = NodePath("%viewmodel_animation_tree2/..")
-tree_root = SubResource("AnimationNodeStateMachine_hpos3")
-advance_expression_base_node = NodePath("../../condition_controller")
-anim_player = NodePath("../viewmodel_animation_controller")
-
 [node name="decal_controller" type="Node" parent="." unique_id=1740383554]
 unique_name_in_owner = true
 script = ExtResource("8_3v2ag")
@@ -290,7 +70,7 @@ script = ExtResource("8_fulsm")
 
 [node name="fps" type="Camera3D" parent="player_pawn" unique_id=1487212340]
 unique_name_in_owner = true
-fov = 60.0
+fov = 90.0
 script = ExtResource("9_4r5pv")
 
 [node name="main_ray" type="RayCast3D" parent="player_pawn/fps" unique_id=536859218]
@@ -306,7 +86,9 @@ wait_time = 0.06
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player_pawn" unique_id=1551951878]
 mesh = SubResource("SphereMesh_trceg")
 
-[node name="ui" type="Control" parent="." unique_id=251356286]
+[node name="ui_layer" type="CanvasLayer" parent="." unique_id=925266163]
+
+[node name="ui" type="Control" parent="ui_layer" unique_id=251356286]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -314,37 +96,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="viewmodel" type="Control" parent="ui" unique_id=1762010656]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="viewmodel_sprite" type="TextureRect" parent="ui/viewmodel" unique_id=1706547540]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2, 1.2)
-pivot_offset = Vector2(576, 324)
-script = ExtResource("10_60mlk")
-
-[node name="crosshair" type="Control" parent="ui" unique_id=1168006882]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="crosshair_sprite" type="TextureRect" parent="ui/crosshair" unique_id=601911747]
+[node name="crosshair_sprite" type="TextureRect" parent="ui_layer/ui" unique_id=601911747]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -361,3 +113,11 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(2.5, 2.5)
 texture = ExtResource("11_i4ail")
+
+[node name="viewmodel" parent="ui_layer/ui" unique_id=786559072 instance=ExtResource("13_f1ej7")]
+unique_name_in_owner = true
+layout_mode = 1
+texture = SubResource("ViewportTexture_jej6c")
+expand_mode = 3
+stretch_mode = 5
+condition_controller = NodePath("")

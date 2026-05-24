@@ -38,6 +38,10 @@ gmap_generator = SubResource("Resource_85g3d")
 
 [node name="gmap_builder" type="Node3D" parent="map" unique_id=214503022]
 unique_name_in_owner = true
+process_priority = 1
+process_thread_group = 2
+process_thread_group_order = 1
+process_thread_messages = 0
 script = ExtResource("1_o5qli")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=786026841]

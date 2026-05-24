@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ViewmodelResource" format=3 uid="uid://cwoxixe8kbj32"]
 
 [ext_resource type="Script" uid="uid://7pobr5wk22bu" path="res://scripts/viewmodel/viewmodel_resource.gd" id="1_eodyv"]
-[ext_resource type="Texture2D" uid="uid://bgwejj5ttqxjy" path="res://assets/sprites/viewmodels/drill.png" id="2_yu1vk"]
+[ext_resource type="Texture2D" uid="uid://bgwejj5ttqxjy" path="res://assets/sprites/viewmodels/handable viewmodels/drill.png" id="2_yu1vk"]
 
 [sub_resource type="Animation" id="Animation_agbwv"]
 loop_mode = 1

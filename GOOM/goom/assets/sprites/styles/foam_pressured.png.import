@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgwejj5ttqxjy"
-path.s3tc="res://.godot/imported/drill.png-f858659a9514a98d4f5028b9ac622952.s3tc.ctex"
+uid="uid://ksn5yrivuho"
+path="res://.godot/imported/foam_pressured.png-39cfd14441f9a615ddfc942b8f063e68.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/viewmodels/drill.png"
-dest_files=["res://.godot/imported/drill.png-f858659a9514a98d4f5028b9ac622952.s3tc.ctex"]
+source_file="res://assets/sprites/styles/foam_pressured.png"
+dest_files=["res://.godot/imported/foam_pressured.png-39cfd14441f9a615ddfc942b8f063e68.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

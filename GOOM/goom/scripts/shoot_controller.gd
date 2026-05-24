@@ -27,10 +27,8 @@ func shoot_hitscan(pos: Vector3, rotation: Vector3, distance: float, damage: flo
 	
 func destruct(at_pos: Vector3i):
 	var gmap = get_parent().get_parent().gmap
-	gmap.set_item(GMapGenerator.room(at_pos,"destruct",3))
+	gmap.set_item(GMapGenerator.room(at_pos,"destruct",GMapGridItem.MAX_LIGHT_LEVEL-1))
 
-	
-	
 func hitscan(pos: Vector3, rotation: Vector3, distance: float):
 	%hitscan_ray.global_position = pos
 	%hitscan_ray.global_rotation = rotation

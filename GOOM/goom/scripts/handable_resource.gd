@@ -6,7 +6,7 @@ class_name HandableResource
 func input(event: InputEvent, hc: HandableController):
 	pass
 func enter(hc: HandableController):
-	pass
+	hc.viewmodel_controller.play("enter")
 func process(hc: HandableController):
 	pass
 func exit(hc: HandableController):

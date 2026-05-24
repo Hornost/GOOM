@@ -7,22 +7,20 @@ var player_pos = Vector3i.ZERO
 func _ready() -> void:
 	Engine.max_fps = 60
 	
-	gmap = gmap_generator.generate()
-	#for el in gmap.grid:
-		#print(el.pos)
+	#gmap = gmap_generator.generate()
 	
-	##build test room
-	#var room = GMapRoom.new()
-	#room.style = "grid"
-	##room.args = ["dioganal_roof"]
-	#room.light_level = 3
-	#var size = 10
-	#for y in range(1):
-		#for x in range(size):
-			#for z in range(size):
-				#var _room = room.duplicate()
-				#_room.pos = Vector3i(x-size/2,y,z-size/2)
-				#gmap.grid.append(_room)
+	#build test room
+	var room = GMapRoom.new()
+	room.style = "grid"
+	#room.args = ["dioganal_roof"]
+	room.light_level = 3
+	var size = 5
+	for y in range(size):
+		for x in range(size):
+			for z in range(size):
+				var _room = room.duplicate()
+				_room.pos = Vector3i(x-size/2,y,z-size/2)
+				gmap.grid.append(_room)
 				
 	%gmap_builder.build_gmap(gmap)
 	

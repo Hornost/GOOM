@@ -1,7 +1,3 @@
---Dynamic Destruction: chunks, destroy grid item (replace with foam (nuclear throne like))
-Weapon Controller: Shoot Controller: projectile, hitscan; aim assist
-for weapon resource:
-	func on_weapon_pickup():
-	func on_weapon_drop():
-	
+Grid Container matrix minecraft-like
+Weapon Controller: projectile, hitscan; aim assist
 Enemy

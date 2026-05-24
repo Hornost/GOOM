@@ -10,7 +10,10 @@ func input(event: InputEvent, hc: HandableController):
 		is_triggered = false
 func process(hc: HandableController):
 	if is_triggered:
+		hc.viewmodel_controller.play("trigger")
 		shoot(hc.shoot_controller)
+	else:
+		hc.viewmodel_controller.play("idle")
 func shoot(sc: ShootController):
 	match shoot_type:
 		0:

@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource("1_drdap")
-distance = 2
 name = "drill"
 viewmodel = ExtResource("2_xg852")
 metadata/_custom_type_script = "uid://5attprp8f2ut"

@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://b4w7121i8mirb" path="res://scripts/handable_resource.gd" id="1_331ew"]
 [ext_resource type="Script" uid="uid://7pobr5wk22bu" path="res://scripts/viewmodel/viewmodel_resource.gd" id="2_fr60e"]
+[ext_resource type="AnimationLibrary" uid="uid://cenr3vsqv7nv8" path="res://assets/resources/handable_items/default_animation_library.tres" id="2_wueux"]
 
 [sub_resource type="Resource" id="Resource_wueux"]
 script = ExtResource("2_fr60e")
+animation_library = ExtResource("2_wueux")
 metadata/_custom_type_script = "uid://7pobr5wk22bu"
 
 [resource]
 script = ExtResource("1_331ew")
+name = "empty"
 viewmodel = SubResource("Resource_wueux")
 metadata/_custom_type_script = "uid://b4w7121i8mirb"

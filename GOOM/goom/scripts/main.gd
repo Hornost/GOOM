@@ -30,6 +30,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player_pos != GMapItems.to_local($player.find_child("player_pawn").global_position):
 		player_pos = GMapItems.to_local($player.find_child("player_pawn").global_position)
+		print(player_pos)
 		player_enter_in_new_room.emit()
 func update_light():
 	for i in range(gmap.grid.size()):

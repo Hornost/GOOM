@@ -1,16 +1,21 @@
 extends Node3D
 var generated_meshes = []
 func build_gmap(gmap: GMap):
+	
 	for item in gmap.grid:
+		print(item.pos)
 		var mesh = place_mesh(gmap,item,item.light_level)
 	#for i in range(gmap.grid.size()):
 		#generated_meshes[i].update(gmap,gmap.grid[i])
 	gmap.item_updated.connect(item_updated)
 func item_updated(gmap: GMap, at_idx: int,item: GMapGridItem):
+	print("")
+	print(gmap.grid.size())
+	print(generated_meshes.size())
 	if at_idx < generated_meshes.size():
 		#remove_child(generated_meshes[at_idx])
 		generated_meshes[at_idx].queue_free()
-		generated_meshes.remove_at(at_idx)
+		generated_meshes.pop_at(at_idx)
 	place_mesh(gmap,item,0)
 	update_nearest(gmap,item.pos)
 func place_mesh(gmap: GMap,item: GMapGridItem, light_level:int):

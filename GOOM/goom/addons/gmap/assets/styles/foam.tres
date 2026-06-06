@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GMapItemStyle" format=3 uid="uid://dhc2px44g6mcx"]
 
-[ext_resource type="Script" uid="uid://dkf5uqdp5bsia" path="res://scripts/grid_map/gmap_item_style.gd" id="1_d1eds"]
-[ext_resource type="Texture2D" uid="uid://cnwqronar6k2h" path="res://assets/sprites/styles/foam.png" id="2_dnspe"]
+[ext_resource type="Script" uid="uid://dkf5uqdp5bsia" path="res://addons/gmap/scripts/gmap/gmap_item_style.gd" id="1_d1eds"]
+[ext_resource type="Texture2D" uid="uid://cnwqronar6k2h" path="res://addons/gmap/assets/sprites/styles/foam.png" id="2_dnspe"]
 
 [resource]
 script = ExtResource("1_d1eds")

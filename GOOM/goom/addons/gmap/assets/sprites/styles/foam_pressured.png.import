@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnwqronar6k2h"
-path="res://.godot/imported/foam.png-71b314ce020e7b3ea17cee165adc9951.ctex"
+uid="uid://ksn5yrivuho"
+path="res://.godot/imported/foam_pressured.png-d59634b19494055226c2cb63cf6a328d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/styles/foam.png"
-dest_files=["res://.godot/imported/foam.png-71b314ce020e7b3ea17cee165adc9951.ctex"]
+source_file="res://addons/gmap/assets/sprites/styles/foam_pressured.png"
+dest_files=["res://.godot/imported/foam_pressured.png-d59634b19494055226c2cb63cf6a328d.ctex"]
 
 [params]
 

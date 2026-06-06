@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ksn5yrivuho"
-path="res://.godot/imported/foam_pressured.png-39cfd14441f9a615ddfc942b8f063e68.ctex"
+uid="uid://bo6fwkga0d0jt"
+path.s3tc="res://.godot/imported/grid.png-b99ad366c59fe5799104b0e9a880f508.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/sprites/styles/foam_pressured.png"
-dest_files=["res://.godot/imported/foam_pressured.png-39cfd14441f9a615ddfc942b8f063e68.ctex"]
+source_file="res://addons/gmap/assets/sprites/styles/grid.png"
+dest_files=["res://.godot/imported/grid.png-b99ad366c59fe5799104b0e9a880f508.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

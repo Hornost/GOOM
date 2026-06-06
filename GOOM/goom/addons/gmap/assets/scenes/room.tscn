@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b5ns6mvuy0b5v"]
 
-[ext_resource type="Script" uid="uid://rp5jjpg521sl" path="res://scripts/grid_map/gmap_mesh/gmap_mesh_room.gd" id="1_b6cg7"]
-[ext_resource type="QuadMesh" uid="uid://ckue4k35lplnr" path="res://assets/meshes/wall.tres" id="2_vuay8"]
-[ext_resource type="PlaneMesh" uid="uid://ch07y556kiju0" path="res://assets/meshes/roof.tres" id="3_m42og"]
-[ext_resource type="PrismMesh" uid="uid://2d56v1ds06gs" path="res://assets/meshes/ramp.tres" id="4_cdrf5"]
+[ext_resource type="Script" uid="uid://rp5jjpg521sl" path="res://addons/gmap/scripts/gmap_mesh/gmap_mesh_room.gd" id="1_b6cg7"]
+[ext_resource type="QuadMesh" uid="uid://ckue4k35lplnr" path="res://addons/gmap/assets/meshes/wall.tres" id="2_vuay8"]
+[ext_resource type="PlaneMesh" uid="uid://ch07y556kiju0" path="res://addons/gmap/assets/meshes/roof.tres" id="3_m42og"]
+[ext_resource type="PrismMesh" uid="uid://2d56v1ds06gs" path="res://addons/gmap/assets/meshes/ramp.tres" id="4_cdrf5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6cg7"]
 size = Vector3(1, 1, 0.01)

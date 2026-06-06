@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buvhefdo2jwpd"
-path.s3tc="res://.godot/imported/destruct.png-5151e35c58e4adba8f3e5bdb03e42a55.s3tc.ctex"
+uid="uid://cnwqronar6k2h"
+path="res://.godot/imported/foam.png-56e8bca5b97e422fc4a07d90a6f223d0.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/styles/destruct.png"
-dest_files=["res://.godot/imported/destruct.png-5151e35c58e4adba8f3e5bdb03e42a55.s3tc.ctex"]
+source_file="res://addons/gmap/assets/sprites/styles/foam.png"
+dest_files=["res://.godot/imported/foam.png-56e8bca5b97e422fc4a07d90a6f223d0.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

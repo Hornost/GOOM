@@ -1,7 +1,12 @@
 extends Node
+#global class
 #class_name GMapMaterialsList
 var materials = {}
 var meshes = {}
+
+var STYLES_PATH = "res://addons/gmap/assets/styles/"
+var MESHES_PATH = "res://addons/gmap/assets/meshes/"
+
 func _enter_tree() -> void:
 	pregenerate()
 func generate_mesh_variant_for_style(mesh: Mesh,materials: Array)->Array:
@@ -12,8 +17,7 @@ func generate_mesh_variant_for_style(mesh: Mesh,materials: Array)->Array:
 		meshes.append(_mesh)
 	return meshes
 func pregenerate():
-	var STYLES_PATH = "res://assets/resources/styles/"
-	var MESHES_PATH = "res://assets/meshes/"
+
 	for mesh_file_path in DirAccess.get_files_at(MESHES_PATH):
 		var mesh_name = mesh_file_path.get_basename()
 		meshes.merge({mesh_name:{}})

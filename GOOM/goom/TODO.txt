@@ -1,6 +1,6 @@
 Weapon Controller: projectile; aim assist
 	
-GMap (Goom Map):
+GMap (Grid Map):
 	Gmap blend
 	Gmap Editor: Gmap Hammer
 Enemy

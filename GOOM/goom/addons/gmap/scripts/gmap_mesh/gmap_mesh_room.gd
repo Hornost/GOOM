@@ -19,6 +19,11 @@ func update(gmap: GMap, item: GMapGridItem, pos: Vector3i):
 			if !gmap.get_item(pos + Vector3i(0,0,-1)): enable($"dioganal_roof_z- [ramp]")
 			if !gmap.get_item(pos + Vector3i(1,0,0)): enable($"dioganal_roof_x+ [ramp]")
 			if !gmap.get_item(pos + Vector3i(-1,0,0)): enable($"dioganal_roof_x- [ramp]")
+			
+	#if !gmap.has_item(pos + Vector3i(0,1,0)):
+		#item.light_level = 12
+	#else:
+		#item.light_level = 15
 	update_material(item)
 func disable(node:Node3D):
 	node.hide()

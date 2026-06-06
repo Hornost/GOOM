@@ -29,6 +29,13 @@ func create_chunk(pos: Vector3i):
 	chunk.fill_empty()
 	grid.append(chunk)
 	chunk_created.emit(self, chunk, pos)
+func set_chunk(chunk: GMapGridChunk):
+	if !get_chunk(chunk.pos):
+		grid.append(chunk)
+	else:
+		pass
+		#blend
+	chunk_created.emit(self, chunk, chunk.pos)
 func get_chunk_at_global_pos(global_pos: Vector3i):
 	return get_chunk(to_chunk_grid(global_pos))
 static func to_chunk_local_pos(global_pos: Vector3i):

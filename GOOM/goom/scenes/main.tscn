@@ -15,8 +15,12 @@
 script = ExtResource("3_tbgi4")
 metadata/_custom_type_script = "uid://cycih2thxvjx6"
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
+frequency = 0.0388
+
 [sub_resource type="Resource" id="Resource_85g3d"]
 script = ExtResource("5_tefeu")
+cave_noise = SubResource("FastNoiseLite_choun")
 metadata/_custom_type_script = "uid://cqbhiq0x70so2"
 
 [sub_resource type="Resource" id="Resource_trceg"]
@@ -56,6 +60,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092822194, 0, 0.48509645)
 bot_resource = SubResource("Resource_a8y0u")
 
 [node name="dummy" parent="." unique_id=1089689299 instance=ExtResource("9_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092822194, -4.0384417, 0.48509645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092822194, -2.9703171, 0.48509645)
 script = ExtResource("10_choun")
 health_point = 999999999999

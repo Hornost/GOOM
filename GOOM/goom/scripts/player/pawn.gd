@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 			moving.emit()
 		velocity.x = lerpf(velocity.x,direction.x * WALK_SPEED,FREQUENCY_MOD*delta)
 		velocity.z = lerpf(velocity.z,direction.z * WALK_SPEED,FREQUENCY_MOD*delta)
-		
+	
 	move_and_slide()
 func jump():
 	hit(Vector3.UP*JUMP_FORCE * GRAVITY_MOD + direction * SPEED_FORCE) 

@@ -8,23 +8,32 @@ var player_chunk_pos = Vector3i.ZERO
 
 func _ready() -> void:
 	Engine.max_fps = 60
-	gmap.create_chunk(Vector3i.ZERO)
-	var PREGENERATE_SIZE = 3
+	#gmap.create_chunk(Vector3i.ZERO)
+	var PREGENERATE_SIZE = 2
+	#for z in range(PREGENERATE_SIZE):
+		#for y in range(PREGENERATE_SIZE):
+			#for x in range(PREGENERATE_SIZE):
+				#gmap.create_chunk(Vector3i(x-PREGENERATE_SIZE/2,y-PREGENERATE_SIZE/2,z-PREGENERATE_SIZE/2))
+	gmap_generator.randomize_noise(gmap_generator.cave_noise)
 	for z in range(PREGENERATE_SIZE):
 		for y in range(PREGENERATE_SIZE):
 			for x in range(PREGENERATE_SIZE):
-				gmap.create_chunk(Vector3i(x-PREGENERATE_SIZE/2,y-PREGENERATE_SIZE/2,z-PREGENERATE_SIZE/2))
-	var size = PREGENERATE_SIZE*GMapGridChunk.CHUNK_SIZE/3
+				gmap.set_chunk(gmap_generator.generate_chunk(Vector3i(x-PREGENERATE_SIZE/2,y-PREGENERATE_SIZE/2,z-PREGENERATE_SIZE/2)))
+	var size = 6
 	for z in range(size):
 		for y in range(size):
 			for x in range(size):
 				var pos = Vector3i(x-size/2,y-size/2,z-size/2)
 				gmap.set_item(pos,gmap_generator.room("grid",15))
 	%gmap_builder.build_gmap(gmap)
+	gmap.set_item(Vector3i.ZERO,GMapGenerator.room("grid",15))
 	
 	#player_enter_in_new_room.connect(update_light)
 	player_enter_in_new_chunk.connect(gmap.create_nearest_chunk)
 	player_enter_in_new_room.emit()
+	
+func generate_chunk(pos:Vector3i):
+	gmap.set_chunk(gmap_generator.generate_chunk(pos))
 	
 func _process(delta: float) -> void:
 	if player_pos != GMapItems.to_local($player.find_child("player_pawn").global_position):

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://imd6mh4p84jq"]
+
+[ext_resource type="Script" uid="uid://c0j4frbp1dwo3" path="res://scripts/weapon/weapon_resource/classic_weapon.gd" id="1_wmg8q"]
+[ext_resource type="Script" uid="uid://7pobr5wk22bu" path="res://scripts/viewmodel/viewmodel_resource.gd" id="2_e820r"]
+[ext_resource type="Texture2D" uid="uid://br34dbygo2agu" path="res://assets/sprites/viewmodels/handable viewmodels/plushie_c4.png" id="3_pvulm"]
+[ext_resource type="Script" uid="uid://c6uhh7hutqtde" path="res://scripts/inventory/inventory_item.gd" id="4_q5rvu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e820r"]
+atlas = ExtResource("3_pvulm")
+
+[sub_resource type="Resource" id="Resource_pvulm"]
+script = ExtResource("2_e820r")
+viewmodel_atlas = SubResource("AtlasTexture_e820r")
+sway_mod = 2.0
+metadata/_custom_type_script = "uid://7pobr5wk22bu"
+
+[sub_resource type="Resource" id="Resource_q5rvu"]
+script = ExtResource("1_wmg8q")
+damage = 0
+shoot_delay = 0.01
+name = "_test"
+viewmodel = SubResource("Resource_pvulm")
+metadata/_custom_type_script = "uid://c0j4frbp1dwo3"
+
+[resource]
+script = ExtResource("4_q5rvu")
+name = "_test"
+resource = SubResource("Resource_q5rvu")
+metadata/_custom_type_script = "uid://c6uhh7hutqtde"

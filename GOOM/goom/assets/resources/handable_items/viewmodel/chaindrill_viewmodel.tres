@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ViewmodelResource" format=3 uid="uid://cwoxixe8kbj32"]
+
+[ext_resource type="Script" uid="uid://7pobr5wk22bu" path="res://scripts/viewmodel/viewmodel_resource.gd" id="2_0carw"]
+[ext_resource type="Texture2D" uid="uid://lkiglchsstq8" path="res://assets/sprites/viewmodels/handable viewmodels/chaindrill_viewmodel.png" id="3_8dyh4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0carw"]
+atlas = ExtResource("3_8dyh4")
+region = Rect2(0, 0, 320, 320)
+
+[resource]
+script = ExtResource("2_0carw")
+viewmodel_atlas = SubResource("AtlasTexture_0carw")
+sway_mod = -1.0
+metadata/_custom_type_script = "uid://7pobr5wk22bu"

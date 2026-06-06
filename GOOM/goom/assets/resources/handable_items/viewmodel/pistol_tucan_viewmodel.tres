@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ViewmodelResource" format=3 uid="uid://fw6udr4k3e1p"]
+
+[ext_resource type="AnimationLibrary" uid="uid://bucbylhmpw7ml" path="res://assets/resources/handable_items/classic_weapon_animation_library.tres" id="1_q5srp"]
+[ext_resource type="Script" uid="uid://7pobr5wk22bu" path="res://scripts/viewmodel/viewmodel_resource.gd" id="2_22jl3"]
+[ext_resource type="Texture2D" uid="uid://coodnclisuvk8" path="res://assets/sprites/viewmodels/handable viewmodels/pistol_tucan_viewmodel.png" id="3_q5srp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5srp"]
+atlas = ExtResource("3_q5srp")
+region = Rect2(0, 0, 320, 320)
+
+[resource]
+script = ExtResource("2_22jl3")
+viewmodel_atlas = SubResource("AtlasTexture_q5srp")
+animation_library = ExtResource("1_q5srp")
+sway_mod = 0.5
+metadata/_custom_type_script = "uid://7pobr5wk22bu"

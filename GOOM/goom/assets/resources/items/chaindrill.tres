@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://c80mlu25glsyx"]
+
+[ext_resource type="Resource" uid="uid://d5i07eyg1e0l" path="res://assets/resources/handable_items/weapons/chaindrill.tres" id="1_yoaxk"]
+[ext_resource type="Script" uid="uid://c6uhh7hutqtde" path="res://scripts/inventory/inventory_item.gd" id="2_wla8t"]
+
+[resource]
+script = ExtResource("2_wla8t")
+name = "Chaindrill"
+resource = ExtResource("1_yoaxk")
+metadata/_custom_type_script = "uid://c6uhh7hutqtde"

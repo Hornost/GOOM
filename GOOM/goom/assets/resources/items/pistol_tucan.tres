@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://bcfr0rmmtwgci"]
+
+[ext_resource type="Resource" uid="uid://16lcwq8h1q06" path="res://assets/resources/handable_items/weapons/pistol_tucan.tres" id="1_ur2ua"]
+[ext_resource type="Script" uid="uid://c6uhh7hutqtde" path="res://scripts/inventory/inventory_item.gd" id="2_c7vit"]
+
+[resource]
+script = ExtResource("2_c7vit")
+name = "Tucan-19"
+resource = ExtResource("1_ur2ua")
+metadata/_custom_type_script = "uid://c6uhh7hutqtde"

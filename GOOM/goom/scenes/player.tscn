@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://cmxiggdbe7d3k" path="res://assets/resources/items/empty.tres" id="4_f1ej7"]
 [ext_resource type="Script" uid="uid://v4hn2ddeg14r" path="res://scripts/handable_controller.gd" id="5_oprun"]
 [ext_resource type="Script" uid="uid://b3vk8l5816adf" path="res://scripts/shoot_controller.gd" id="6_a8ls1"]
+[ext_resource type="Script" uid="uid://c03qfm0iaaokg" path="res://scripts/damage_number_controller.gd" id="6_d2wvv"]
 [ext_resource type="Script" uid="uid://cnhemd32xwa0o" path="res://scripts/viewmodel/viewmodel_controller.gd" id="7_qfm1y"]
 [ext_resource type="Script" uid="uid://dhxk5hyxeycq7" path="res://scripts/decal_controller.gd" id="8_3v2ag"]
 [ext_resource type="Script" uid="uid://chv7gtkbov8bi" path="res://scripts/player/pawn.gd" id="8_fulsm"]
@@ -49,13 +50,17 @@ unique_name_in_owner = true
 collision_mask = 7
 script = SubResource("GDScript_3v2ag")
 
+[node name="decal_controller" type="Node" parent="shoot_controller" unique_id=1740383554]
+unique_name_in_owner = true
+script = ExtResource("8_3v2ag")
+
+[node name="damage_number_controller" type="Node" parent="shoot_controller" unique_id=399042350]
+unique_name_in_owner = true
+script = ExtResource("6_d2wvv")
+
 [node name="viewmodel_controller" type="Node" parent="." unique_id=1182168003]
 unique_name_in_owner = true
 script = ExtResource("7_qfm1y")
-
-[node name="decal_controller" type="Node" parent="." unique_id=1740383554]
-unique_name_in_owner = true
-script = ExtResource("8_3v2ag")
 
 [node name="player_pawn" type="CharacterBody3D" parent="." unique_id=1927301414]
 unique_name_in_owner = true

@@ -1,15 +1,39 @@
 [gd_scene format=3 uid="uid://cmn6oj4yyc7sq"]
 
-[ext_resource type="Script" uid="uid://6np4pdtadrqe" path="res://scenes/viewmodel.gd" id="1_et6ey"]
+[ext_resource type="Script" uid="uid://6np4pdtadrqe" path="res://scripts/viewmodel/viewmodel.gd" id="1_et6ey"]
+[ext_resource type="Resource" uid="uid://c80mlu25glsyx" path="res://assets/resources/items/chaindrill.tres" id="2_ahr41"]
 [ext_resource type="Script" uid="uid://ulkw6rhw3n61" path="res://scripts/animated_sprite_node.gd" id="2_et6ey"]
-[ext_resource type="Resource" uid="uid://chj5p5mirg5g3" path="res://assets/resources/items/test1.tres" id="4_wcc5d"]
+[ext_resource type="AnimationLibrary" uid="uid://bucbylhmpw7ml" path="res://assets/resources/handable_items/classic_weapon_animation_library.tres" id="3_wcc5d"]
+[ext_resource type="Texture2D" uid="uid://dm5qd1ne8lf0t" path="res://assets/sprites/viewmodels/hand viewmodels/hand_viewmodel.png" id="4_r83kc"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bknrh"]
 viewport_path = NodePath("viewmodel_viewport")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_et6ey"]
+[sub_resource type="Animation" id="Animation_wcc5d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%viewmodel_sprite:frame_idx")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[node name="viewmodel" type="TextureRect" unique_id=1105389621 node_paths=PackedStringArray("viewmodel_animation_controller", "viewmodel_parent", "viewmodel_sprite")]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_et6ey"]
+_data = {
+&"RESET": SubResource("Animation_wcc5d")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r83kc"]
+atlas = ExtResource("4_r83kc")
+region = Rect2(0, 0, 180, 180)
+
+[node name="viewmodel" type="TextureRect" unique_id=1105389621 node_paths=PackedStringArray("viewmodel_animation_controller", "viewmodel_parent", "viewmodel_sprite", "viewmodel_viewport")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,12 +44,14 @@ script = ExtResource("1_et6ey")
 viewmodel_animation_controller = NodePath("viewmodel_animation_controller")
 viewmodel_parent = NodePath("viewmodel_viewport/viewmodel_parent")
 viewmodel_sprite = NodePath("viewmodel_viewport/viewmodel_parent/viewmodel_sprite")
-debug_item = ExtResource("4_wcc5d")
+viewmodel_viewport = NodePath("viewmodel_viewport")
+debug_item = ExtResource("2_ahr41")
 
 [node name="viewmodel_animation_controller" type="AnimationPlayer" parent="." unique_id=537045977]
 unique_name_in_owner = true
 root_node = NodePath("../viewmodel_viewport")
 libraries/ = SubResource("AnimationLibrary_et6ey")
+libraries/classic_weapon_animation_library = ExtResource("3_wcc5d")
 
 [node name="viewmodel_viewport" type="SubViewport" parent="." unique_id=912664220]
 unique_name_in_owner = true
@@ -36,11 +62,30 @@ size = Vector2i(320, 180)
 render_target_update_mode = 4
 
 [node name="viewmodel_parent" type="Node2D" parent="viewmodel_viewport" unique_id=267263222]
+unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(160, 90)
+position = Vector2(160, 160)
 scale = Vector2(1.2, 1.2)
 
 [node name="viewmodel_sprite" type="Sprite2D" parent="viewmodel_viewport/viewmodel_parent" unique_id=912475303]
 unique_name_in_owner = true
-position = Vector2(0, 300.235)
 script = ExtResource("2_et6ey")
+
+[node name="rhand_viewmodel_sprite" type="Sprite2D" parent="viewmodel_viewport/viewmodel_parent" unique_id=595485349]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+position = Vector2(82.68, 300.235)
+texture = SubResource("AtlasTexture_r83kc")
+script = ExtResource("2_et6ey")
+atlas = SubResource("AtlasTexture_r83kc")
+
+[node name="lhand_viewmodel_sprite2" type="Sprite2D" parent="viewmodel_viewport/viewmodel_parent" unique_id=456808801]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+position = Vector2(0, 300)
+texture = SubResource("AtlasTexture_r83kc")
+flip_h = true
+script = ExtResource("2_et6ey")
+atlas = SubResource("AtlasTexture_r83kc")

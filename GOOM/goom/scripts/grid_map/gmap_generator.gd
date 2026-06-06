@@ -32,9 +32,8 @@ func generate()->GMap:
 	#for item in gmap.grid:
 		#item.light_level = randi_range(0,3) 
 	return gmap
-static func room(pos,style,light_level,args = []):
+static func room(style,light_level,args = []):
 	var room = GMapRoom.new()
-	room.pos = pos
 	room.style = style
 	room.args = args
 	room.light_level = light_level

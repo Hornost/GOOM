@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://catb6i1vp7gkd"
-path="res://.godot/imported/minigun_viewmodel.png-3365d13f81cc21d174d442372a7c6795.ctex"
+uid="uid://lkiglchsstq8"
+path="res://.godot/imported/chaindrill_viewmodel.png-93cb7a550ff18137dadb5868c26cd96b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/viewmodels/handable viewmodels/minigun_viewmodel.png"
-dest_files=["res://.godot/imported/minigun_viewmodel.png-3365d13f81cc21d174d442372a7c6795.ctex"]
+source_file="res://assets/sprites/viewmodels/handable viewmodels/chaindrill_viewmodel.png"
+dest_files=["res://.godot/imported/chaindrill_viewmodel.png-93cb7a550ff18137dadb5868c26cd96b.ctex"]
 
 [params]
 

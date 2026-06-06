@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cc8m8g3gpnn51"]
+
+[ext_resource type="Script" uid="uid://cycrxm5pou56p" path="res://scripts/damage_number.gd" id="1_aie4f"]
+
+[node name="damage_number" type="Node3D" unique_id=1225492205]
+script = ExtResource("1_aie4f")
+
+[node name="label" type="Label3D" parent="." unique_id=769625975]
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+render_priority = 3
+outline_render_priority = 2
+text = "2"
+
+[node name="timer" type="Timer" parent="." unique_id=356287237]
+wait_time = 1.4
+one_shot = true
+
+[connection signal="timeout" from="timer" to="." method="timeout"]

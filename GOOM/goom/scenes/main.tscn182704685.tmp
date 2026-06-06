@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cf6p1riesbji6" path="res://scenes/player.tscn" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://cqbhiq0x70so2" path="res://scripts/grid_map/gmap_generator.gd" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://r62vgn854mc6" path="res://scenes/bot_pawn.tscn" id="9_ya4ey"]
-[ext_resource type="Script" uid="uid://dtags44nkqj37" path="res://scripts/entity.gd" id="10_choun"]
 [ext_resource type="Script" uid="uid://bu5nk6eairi8f" path="res://scripts/bot/bot_ai_walking_enemy.gd" id="10_eb6dy"]
 [ext_resource type="Script" uid="uid://dcql8bii4brq3" path="res://scripts/bot/bot_resource.gd" id="10_ya4ey"]
 
@@ -54,8 +53,3 @@ visible = false
 [node name="bot_pawn" parent="." unique_id=1602673885 instance=ExtResource("9_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092822194, 0, 0.48509645)
 bot_resource = SubResource("Resource_a8y0u")
-
-[node name="dummy" parent="." unique_id=1089689299 instance=ExtResource("9_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092822194, -4.0384417, 0.48509645)
-script = ExtResource("10_choun")
-health_point = 999999999999

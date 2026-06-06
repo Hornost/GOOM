@@ -3,11 +3,13 @@ class_name ShootController
 var player_pawn: Node3D
 var fps: Node3D
 var decal_controller: DecalController
+var damage_number_controller: DamageNumberController
 var hitscan_info
 func _ready() -> void:
 	player_pawn = %player_pawn
 	fps = %fps
 	decal_controller = %decal_controller
+	damage_number_controller = %damage_number_controller
 func shoot_hitscan(pos: Vector3, rotation: Vector3, distance: float, damage: float):
 	var info = hitscan(pos,rotation,distance)
 	if info:
@@ -20,6 +22,7 @@ func shoot_hitscan(pos: Vector3, rotation: Vector3, distance: float, damage: flo
 		if body:
 			if body is Entity:
 				body.damage(damage)
+				damage_number_controller.create_damage_number(info[1],damage)
 			elif body is StaticBody3D:
 				decal_controller.create_decal(info[1],info[2])
 	#
@@ -27,7 +30,7 @@ func shoot_hitscan(pos: Vector3, rotation: Vector3, distance: float, damage: flo
 	
 func destruct(at_pos: Vector3i):
 	var gmap = get_parent().get_parent().gmap
-	gmap.set_item(GMapGenerator.room(at_pos,"destruct",GMapGridItem.MAX_LIGHT_LEVEL-1))
+	gmap.set_item(at_pos,GMapGenerator.room("destruct",GMapGridItem.MAX_LIGHT_LEVEL-1))
 
 func hitscan(pos: Vector3, rotation: Vector3, distance: float):
 	%hitscan_ray.global_position = pos

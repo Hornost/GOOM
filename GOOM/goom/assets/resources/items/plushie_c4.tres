@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://bwjvwd0peed0n"]
+
+[ext_resource type="Script" uid="uid://b4w7121i8mirb" path="res://scripts/handable_resource.gd" id="1_7jlwt"]
+[ext_resource type="Script" uid="uid://7pobr5wk22bu" path="res://scripts/viewmodel/viewmodel_resource.gd" id="2_8hh24"]
+[ext_resource type="Texture2D" uid="uid://br34dbygo2agu" path="res://assets/sprites/viewmodels/handable viewmodels/plushie_c4.png" id="3_sglht"]
+[ext_resource type="Script" uid="uid://c6uhh7hutqtde" path="res://scripts/inventory/inventory_item.gd" id="4_2pkms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g06vl"]
+atlas = ExtResource("3_sglht")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="Resource" id="Resource_61ven"]
+script = ExtResource("2_8hh24")
+viewmodel_atlas = SubResource("AtlasTexture_g06vl")
+sway_mod = 2.0
+metadata/_custom_type_script = "uid://7pobr5wk22bu"
+
+[sub_resource type="Resource" id="Resource_6n6cs"]
+script = ExtResource("1_7jlwt")
+name = "plushie"
+viewmodel = SubResource("Resource_61ven")
+metadata/_custom_type_script = "uid://b4w7121i8mirb"
+
+[resource]
+script = ExtResource("4_2pkms")
+name = "Plushie"
+resource = SubResource("Resource_6n6cs")
+metadata/_custom_type_script = "uid://c6uhh7hutqtde"

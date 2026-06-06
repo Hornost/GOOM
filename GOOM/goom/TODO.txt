@@ -1,3 +1,6 @@
-Grid Container matrix minecraft-like
-Weapon Controller: projectile, hitscan; aim assist
+Weapon Controller: projectile; aim assist
+	
+GMap (Goom Map):
+	Gmap blend
+	Gmap Editor: Gmap Hammer
 Enemy

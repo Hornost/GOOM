@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name PlayerPawn
 var speed = 5.0 #adsfsdafas'dflkjsad'f;jkasddfsjkafd'jasdf;klasf;lkasdf;lhasdfl;kas;flkjasdfjasf;ljasf;jl
 var direction = Vector3.ZERO
 var input_dir = Vector2.ZERO

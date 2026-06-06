@@ -6,8 +6,12 @@ class_name HandableResource
 func input(event: InputEvent, hc: HandableController):
 	pass
 func enter(hc: HandableController):
-	hc.viewmodel_controller.play("enter")
-func process(hc: HandableController):
+	pass
+func process(hc: HandableController, delta: float):
+	pass
+func holster_process(hc: HandableController, delta: float):
 	pass
 func exit(hc: HandableController):
 	pass
+func create_timer(hc: HandableController, wait_time: float) -> SceneTreeTimer:
+	return hc.get_tree().create_timer(wait_time)

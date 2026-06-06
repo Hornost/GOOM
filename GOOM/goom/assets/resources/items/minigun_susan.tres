@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://chj5p5mirg5g3"]
+
+[ext_resource type="Resource" uid="uid://ddabl3ndv261v" path="res://assets/resources/handable_items/weapons/minigun_susan.tres" id="1_mjs6k"]
+[ext_resource type="Script" uid="uid://c6uhh7hutqtde" path="res://scripts/inventory/inventory_item.gd" id="2_dcbjv"]
+
+[resource]
+script = ExtResource("2_dcbjv")
+name = "\"Susan\" mL-92"
+resource = ExtResource("1_mjs6k")
+metadata/_custom_type_script = "uid://c6uhh7hutqtde"

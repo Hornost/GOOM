@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ClassicWeaponResource" format=3 uid="uid://16lcwq8h1q06"]
+
+[ext_resource type="Script" uid="uid://c0j4frbp1dwo3" path="res://scripts/weapon/weapon_resource/classic_weapon.gd" id="1_linoc"]
+[ext_resource type="Resource" uid="uid://fw6udr4k3e1p" path="res://assets/resources/handable_items/viewmodel/pistol_tucan_viewmodel.tres" id="2_linoc"]
+
+[resource]
+script = ExtResource("1_linoc")
+name = "pistol_tucan"
+viewmodel = ExtResource("2_linoc")
+metadata/_custom_type_script = "uid://c0j4frbp1dwo3"
